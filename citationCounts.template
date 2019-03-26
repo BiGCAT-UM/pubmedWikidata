@@ -1,0 +1,8 @@
+SELECT ?pmid (COUNT(DISTINCT ?citingArticle) AS ?count) WHERE {
+  VALUES ?pmid {
+# PMIDS
+  }
+  ?article wdt:P698 ?pmid ;
+           ^wdt:P2860 ?citingArticle .
+} GROUP BY ?article ?pmid
+  ORDER BY DESC(?count)
